@@ -16,6 +16,7 @@ export class AddressListElementComponent implements OnInit, OnDestroy {
   constructor(private notificationService: NotificationService) {
   }
 
+  // Moved from the constructor - Thanks Kyle...
   ngOnInit(): void {
     this.subscription = this.notificationService.selectedElement.subscribe(newAddress => {
       this.selected = newAddress === this.address ? true : false;
