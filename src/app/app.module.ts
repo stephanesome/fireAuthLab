@@ -11,6 +11,10 @@ import {FormsModule} from '@angular/forms';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,14 +22,18 @@ import {environment} from '../environments/environment';
     HeaderComponent,
     AddressListComponent,
     AddressListElementComponent,
-    AddressViewComponent
+    AddressViewComponent,
+    SignInComponent,
+    SignUpComponent
   ],
     imports: [
         BrowserModule,
         NgbModule,
         FormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFirestoreModule
+        AngularFirestoreModule,
+        AppRoutingModule,
+        RouterModule
     ],
   providers: [],
   bootstrap: [AppComponent]

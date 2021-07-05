@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AddressViewComponent } from './address-view.component';
 
@@ -6,7 +6,7 @@ describe('AddressViewComponent', () => {
   let component: AddressViewComponent;
   let fixture: ComponentFixture<AddressViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AddressViewComponent ]
     })
