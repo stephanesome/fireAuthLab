@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {RouterModule} from '@angular/router';
+import { PasswordForgotComponent } from './password-forgot/password-forgot.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {RouterModule} from '@angular/router';
     AddressListElementComponent,
     AddressViewComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    PasswordForgotComponent
   ],
     imports: [
         BrowserModule,
