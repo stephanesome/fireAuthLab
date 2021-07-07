@@ -1,20 +1,25 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFirestore, DocumentChangeAction, DocumentReference} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {AddressEntry} from '../address-entry';
+import {AuthService} from '../../authentication/auth.service';
 
-// db.collection('abooks').doc('_userid').collection('addresses').doc('_addressid')
 @Injectable({
   providedIn: 'root'
 })
 export class AddressDbService {
-  // inject authentication service to access authenticated userdid
-  constructor(private firestore: AngularFirestore) { }
+  // private currentId: string;
+
+  constructor(
+    private firestore: AngularFirestore,
+    private authService: AuthService
+  ) {}
 
   getAddresses(): Observable<DocumentChangeAction<unknown>[]> {
+    console.log('> getAddresses ');
     return this.firestore
       .collection('abooks')
-      .doc('user')
+      .doc(this.authService.userid)
       .collection('addresses')
       .snapshotChanges();
   }
@@ -23,7 +28,7 @@ export class AddressDbService {
     delete address.id;
     return this.firestore
       .collection('abooks')
-      .doc('user')
+      .doc(this.authService.userid)
       .collection('addresses')
       .add({...address});
   }
@@ -33,7 +38,7 @@ export class AddressDbService {
     delete address.id;
     return this.firestore
       .collection('abooks')
-      .doc('user')
+      .doc(this.authService.userid)
       .collection('addresses')
       .doc(addressId)
       .update(address);
@@ -42,7 +47,7 @@ export class AddressDbService {
   deleteAddress(addressId: string): Promise<void> {
     return this.firestore
       .collection('abooks')
-      .doc('user')
+      .doc(this.authService.userid)
       .collection('addresses')
       .doc(addressId)
       .delete();

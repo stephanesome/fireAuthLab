@@ -113,7 +113,7 @@ input:-moz-placeholder {
   color: #a0a0a0;
   background: white;
   position: relative;
-  margin: 5px 0 0px;
+  margin: 5px 0 0;
 }
 
 .orInner {
@@ -165,3 +165,13 @@ input:-moz-placeholder {
   text-decoration: underline;
 }
 
+.navbar-text {
+  padding: 0 25px 0;
+  font-size: 22px;
+  font-weight: 400;
+  color: rgba(0, 15, 100, .6);
+}
+
+.nav-link {
+  cursor: pointer;
+}
